@@ -122,6 +122,13 @@ def main():
     else:
         st.header("Overall CGPA")
         st.write("Overall CGPA: Not available (Invalid grades or credits)")
+        
+    st.markdown(
+        """
+        ---
+        **Made with ❤️ from [FarhaanBhaai](https://www.facebook.com/fb.shfarhaan).**
+        """
+    )
 
 if __name__ == "__main__":
     main()
