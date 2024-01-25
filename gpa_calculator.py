@@ -48,6 +48,31 @@ def calculate_gpa(grades, credits):
     
 def main():
     st.title("GPA and CGPA Calculator")
+    
+    st.markdown("""
+                
+                
+                # Grading System
+
+                Below is the grading system being used for the GPA and CGPA calculations in this application.
+
+
+                | Grade | Evaluation Point  |
+                |-------|-------------------|
+                | A+    | 4.0               |
+                | A     | 4.0               |
+                | A-    | 3.8               |
+                | B+    | 3.3               |
+                | B     | 3.0               |
+                | B-    | 2.8               |
+                | C+    | 2.5               |
+                | C     | 2.2               |
+                | D     | 1.5               |
+                | F     | 0.0               |
+
+
+                """)
+    
 
     # Ask the user for the maximum number of semesters
     max_semesters = st.sidebar.number_input("Max Number of Semesters", min_value=1, value=1, key="max_semesters")
