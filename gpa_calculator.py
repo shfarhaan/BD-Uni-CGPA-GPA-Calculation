@@ -126,6 +126,11 @@ def main():
     st.markdown(
         """
         ---
+        
+        
+        
+        
+        
         **Made with ❤️ from [FarhaanBhaai](https://www.facebook.com/fb.shfarhaan).**
         """
     )
