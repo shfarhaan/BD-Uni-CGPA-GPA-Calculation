@@ -44,26 +44,35 @@ def calculate_gpa(grades, credits):
         return gpa
     else:
         return None
-
+    
+    
 def main():
     st.title("GPA and CGPA Calculator")
 
-    # Sidebar to input the number of semesters
-    num_semesters = st.sidebar.number_input("Number of Semesters", min_value=1, max_value=10, value=1, key="num_semesters")
+    # Ask the user for the maximum number of semesters
+    max_semesters = st.sidebar.number_input("Max Number of Semesters", min_value=1, value=1, key="max_semesters")
+
+    # Sidebar to input the range of semesters
+    start_semester = st.sidebar.number_input("Start Semester", min_value=1, max_value=max_semesters, value=1, key="start_semester")
+    end_semester = st.sidebar.number_input("End Semester", min_value=start_semester, max_value=max_semesters, value=start_semester, key="end_semester")
 
     semesters = []
-    for semester in range(1, num_semesters + 1):
+    for semester in range(start_semester, end_semester + 1):
         st.sidebar.markdown(f"## Semester {semester}")
+
+        # Input the number of courses taken in each semester
+        num_courses = st.sidebar.number_input(f"Number of Courses in Semester {semester}", min_value=1, max_value=10, value=1, key=f"num_courses_semester_{semester}")
+
         grades = []
         credits = []
 
-        # Input grades and credits for each subject in the semester
-        for subject in range(1, 6):  # Assuming 5 subjects per semester
-            grade_key = f"semester_{semester}_subject_{subject}_grade"
-            credit_key = f"semester_{semester}_subject_{subject}_credit"
+        # Input grades and credits for each course in the semester
+        for course in range(1, num_courses + 1):
+            grade_key = f"semester_{semester}_course_{course}_grade"
+            credit_key = f"semester_{semester}_course_{course}_credit"
 
-            grade = st.sidebar.selectbox(f"Subject {subject} Grade", ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "F"], key=grade_key)
-            credit = st.sidebar.number_input(f"Subject {subject} Credit", min_value=0, max_value=10, value=0, key=credit_key)
+            grade = st.sidebar.selectbox(f"Course {course} Grade", ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "F"], key=grade_key)
+            credit = st.sidebar.number_input(f"Course {course} Credit", min_value=0, max_value=10, value=0, key=credit_key)
 
             grades.append(grade)
             credits.append(credit)
@@ -72,7 +81,7 @@ def main():
 
     # Calculate and display GPA for each semester
     st.header("Semester-wise GPA")
-    for i, (grades, credits) in enumerate(semesters, start=1):
+    for i, (grades, credits) in enumerate(semesters, start=start_semester):
         semester_gpa = calculate_gpa(grades, credits)
         if semester_gpa is not None:
             st.write(f"Semester {i} GPA: {semester_gpa:.2f}")
