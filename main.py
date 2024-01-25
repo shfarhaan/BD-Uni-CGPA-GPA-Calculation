@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 
 # Define a function to convert letter grades to grade points
 def letter_to_point(letter):
@@ -82,12 +81,10 @@ def main():
 
     # Calculate and display GPA for each semester
     st.header("Semester-wise GPA")
-    # semester_data = []
     for i, (grades, credits) in enumerate(semesters, start=start_semester):
         semester_gpa = calculate_gpa(grades, credits)
         if semester_gpa is not None:
             st.write(f"Semester {i} GPA: {semester_gpa:.2f}")
-            # semester_data.append((f"Semester {i}", semester_gpa))
         else:
             st.write(f"Semester {i} GPA: Not available (Invalid grades or credits)")
 
@@ -97,22 +94,9 @@ def main():
     if overall_gpa is not None:
         st.header("Overall CGPA")
         st.write(f"CGPA: {overall_gpa:.2f}")
-        # semester_data.append(("Overall CGPA", overall_gpa))
     else:
         st.header("Overall CGPA")
         st.write("Overall CGPA: Not available (Invalid grades or credits)")
-
-
-    # # Save results to CSV
-    # if st.button("Save Results to CSV"):
-    #     df = pd.DataFrame(semester_data, columns=["Semester", "GPA"])
-    #     df.to_csv("gpa_results.csv", index=False)
-    #     st.success("Results saved to gpa_results.csv")
-
-    # Reset button to clear results
-    if st.button("Reset Results"):
-        st.experimental_rerun()
-
 
 if __name__ == "__main__":
     main()
