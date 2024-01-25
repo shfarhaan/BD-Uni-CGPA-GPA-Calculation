@@ -2,6 +2,27 @@
 
 This Streamlit application allows users to calculate Semester-wise GPA and Overall CGPA based on the grades and credit hours for each subject/course taken in multiple semesters.
 
+# Grading System
+
+Below is the grading system being used for the GPA and CGPA calculations in this application.
+
+
+| Grade | Evaluation Point  |
+|-------|-------------------|
+| A+    | 4.0               |
+| A     | 4.0               |
+| A-    | 3.8               |
+| B+    | 3.3               |
+| B     | 3.0               |
+| B-    | 2.8               |
+| C+    | 2.5               |
+| C     | 2.2               |
+| D     | 1.5               |
+| F     | 0.0               |
+
+
+
+
 ## Features
 
 - Dynamic input for the range of semesters.
