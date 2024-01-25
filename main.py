@@ -11,7 +11,7 @@ def main():
     st.title("GPA and CGPA Calculator")
 
     # Sidebar to input the number of semesters
-    num_semesters = st.sidebar.number_input("Number of Semesters", min_value=1, max_value=10, value=1)
+    num_semesters = st.sidebar.number_input("Number of Semesters", min_value=1, max_value=10, value=1, key="num_semesters")
 
     semesters = []
     for semester in range(1, num_semesters + 1):
@@ -20,7 +20,8 @@ def main():
 
         # Input grades for each subject in the semester
         for subject in range(1, 6):  # Assuming 5 subjects per semester
-            grade = st.sidebar.number_input(f"Subject {subject} Grade (0-100)", min_value=0, max_value=100, value=0)
+            key = f"semester_{semester}_subject_{subject}_grade"
+            grade = st.sidebar.number_input(f"Subject {subject} Grade (0-100)", min_value=0, max_value=100, value=0, key=key)
             grades.append(grade)
 
         semesters.append(grades)
