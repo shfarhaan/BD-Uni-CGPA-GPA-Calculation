@@ -60,3 +60,4 @@ You can customize the letter-to-point conversion function in the `letter_to_poin
 
 Feel free to modify the Streamlit app script (`gpa_calculator.py`) according to your specific requirements.
 
+Made with ❤️ from [FarhaanBhaai](https://www.facebook.com/fb.shfarhaan).
