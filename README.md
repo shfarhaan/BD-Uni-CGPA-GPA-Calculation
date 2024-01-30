@@ -1,6 +1,6 @@
 # GPA and CGPA Calculator
 
-This Streamlit application allows users to calculate Semester-wise GPA and Overall CGPA based on the grades and credit hours for each subject/course taken in multiple semesters.
+This Streamlit application allows users to calculate Semester-wise GPA and Overall CGPA based on the grades and credit hours for each subject/course taken in multiple semesters. Follow the Customization section to customize the grading system according to your institutional grading system.
 
 # Grading System
 
